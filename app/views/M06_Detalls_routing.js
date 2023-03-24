@@ -25,7 +25,7 @@ export class M06_Detalls extends React.Component {
           <Text>el curs és: </Text>
     
           <Button title="Tornar a Home" onPress={() => this.props.navigation.navigate('Home')} />
-          <Button title="Go back" onPress={() => this.props.navigation.navigate.goBack()} />
+          <Button title="Go back" onPress={() => this.props.navigation.goBack()} />
         </View>
       );
     }
