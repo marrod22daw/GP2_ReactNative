@@ -30,6 +30,10 @@ export class M06_Home extends React.Component {
               nom: 'DAW2',
             })}
           />
+          <Button
+            title="SQL"
+            onPress={() => this.props.navigation.navigate('SQLite')}
+          />
         </View>
       );
 
