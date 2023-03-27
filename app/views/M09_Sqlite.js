@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import * as SQLite from 'expo-sqlite';
+import { ScrollView } from 'react-native'
 import data from './paisos.json';
 
 /**
@@ -34,7 +35,10 @@ export class M09_Sqlite extends React.Component {
 
     db.transaction(tx => {
       tx.executeSql(
-        "create table if not exists paisos (id integer primary key not null, Pais text, Capital text);"
+        "drop table if exists paisos;"
+      );
+      tx.executeSql(
+        "create table if not exists paisos (id integer primary key not null, Pais text, Capital text, Poblacion int, Bandera text);"
       );
     });
 
@@ -44,8 +48,8 @@ export class M09_Sqlite extends React.Component {
   insertRecordsFromJson() {
     db.transaction(tx => {
       data.forEach(item => {
-        const { Pais, Capital } = item;
-        tx.executeSql("INSERT INTO paisos (Pais, Capital) VALUES (?, ?)", [Pais, Capital]);
+        const { Pais, Capital, Poblacion, Bandera } = item;
+        tx.executeSql("INSERT INTO paisos (Pais, Capital, Poblacion, Bandera) VALUES (?, ?, ?, ?)", [Pais, Capital, Poblacion, Bandera]);
       });
     });
   }
@@ -65,9 +69,17 @@ export class M09_Sqlite extends React.Component {
     return (
       <View style={estils.peu}>
         <Text style={estils.textPeu}> SQLITE </Text>
+        <ScrollView>
         {paisos.map(item => (
-          <Text key={item.id}>{item.Pais}{item.Capital}</Text>
+          <View key={item.id}>
+            <Text>{item.Pais} - {item.Capital} - {item.Poblacion}</Text>
+            <Image
+            source={{ uri: item.Bandera }}
+            style={{ width: 100, height: 100 }}
+          />
+          </View>
         ))}
+        </ScrollView>
       </View>
     );
   }
