@@ -59,6 +59,13 @@ const estils = StyleSheet.create({
     marginHorizontal: 16,
     marginBottom: 12,
   },
+  poblacionText2: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    color: "#666",
+    marginHorizontal: 16,
+    marginBottom: 12,
+  },
   banderaImagen: {
     width: "100%",
     height: 200,
@@ -67,7 +74,7 @@ const estils = StyleSheet.create({
   },
 });
 
-export class M09_Sqlite extends React.Component {
+export class M09_Sqlite_EVida extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -75,32 +82,12 @@ export class M09_Sqlite extends React.Component {
       paisos: [],
     };
     db = SQLite.openDatabase("db.db");
-
-    db.transaction((tx) => {
-      tx.executeSql("drop table if exists paisos;");
-      tx.executeSql(
-        "create table if not exists paisos (id integer primary key not null, Pais text, Capital text, PiB int, Poblacion int, EsperanzaVida int, Bandera text);"
-      );
-    });
-
-    this.insertRecordsFromJson();
   }
 
-  insertRecordsFromJson() {
-    db.transaction((tx) => {
-      data.forEach((item) => {
-        const { Pais, Capital, PiB, Poblacion, EsperanzaVida, Bandera } = item;
-        tx.executeSql(
-          "INSERT INTO paisos (Pais, Capital, PiB, Poblacion, EsperanzaVida, Bandera) VALUES (?, ?, ?, ?, ?, ?)",
-          [Pais, Capital, PiB, Poblacion, EsperanzaVida, Bandera]
-        );
-      });
-    });
-  }
 
   componentDidMount() {
     db.transaction((tx) => {
-      tx.executeSql("SELECT * FROM paisos order by Pais", [], (_, { rows }) =>
+      tx.executeSql("SELECT * FROM paisos order by EsperanzaVida", [], (_, { rows }) =>
         this.setState({ paisos: rows._array })
       );
     });
@@ -137,7 +124,7 @@ export class M09_Sqlite extends React.Component {
               <Text style={estils.poblacionText}>
                 Població: {item.Poblacion}
               </Text>
-              <Text style={estils.poblacionText}>
+              <Text style={estils.poblacionText2}>
                 Esperança de vida: {item.EsperanzaVida}
               </Text>
               <Image
