@@ -132,17 +132,17 @@ export class M09_Sqlite extends React.Component {
             >
               <Button
                 title="Població"
-                onPress={() => this.props.navigation.navigate("SQLite_Pobl")}
+                onPress={() => this.props.navigation.navigate('App2', { screen: 'SQLite_Pobl' })}
                 color="#696969"
               />
               <Button
                 title="PiB"
-                onPress={() => this.props.navigation.navigate("SQLite_PiB")}
+                onPress={() => this.props.navigation.navigate('App2',{screen: 'SQLite_PiB'})}
                 color="#696969"
               />
               <Button
                 title="Esp. de Vida"
-                onPress={() => this.props.navigation.navigate("SQLite_EVida")}
+                onPress={() => this.props.navigation.navigate('App2',{screen: 'SQLite_EVida'})}
                 color="#696969"
                 fontWeight="bold"
               />
