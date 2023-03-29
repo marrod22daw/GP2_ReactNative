@@ -60,7 +60,7 @@ const estils = StyleSheet.create({
     marginBottom: 12,
   },
   poblacionText2: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 18,
     color: "#666",
     marginHorizontal: 16,
@@ -71,6 +71,13 @@ const estils = StyleSheet.create({
     height: 200,
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,
+  },
+  buttons: {
+    flexDirection: "row",
+    padding: "5%",
+  },
+  buttons2: {
+    marginLeft: "5%",
   },
 });
 
@@ -84,11 +91,12 @@ export class M09_Sqlite_EVida extends React.Component {
     db = SQLite.openDatabase("db.db");
   }
 
-
   componentDidMount() {
     db.transaction((tx) => {
-      tx.executeSql("SELECT * FROM paisos order by EsperanzaVida", [], (_, { rows }) =>
-        this.setState({ paisos: rows._array })
+      tx.executeSql(
+        "SELECT * FROM paisos order by EsperanzaVida",
+        [],
+        (_, { rows }) => this.setState({ paisos: rows._array })
       );
     });
   }
@@ -99,28 +107,38 @@ export class M09_Sqlite_EVida extends React.Component {
     return (
       <View style={estils.container}>
         <View style={estils.header}>
-          <Text style={estils.headerText}>PAÍSOS DEL MON</Text>
-          <Button
-            title="PiB"
-            onPress={() => this.props.navigation.navigate('SQLite_PiB')}
-          />
-          <Button
-            title="Població"
-            onPress={() => this.props.navigation.navigate('SQLite_Pobl')}
-          />
-          <Button
-            title="Esp. de Vida"
-            onPress={() => this.props.navigation.navigate('SQLite_EVida')}
-          />
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Text style={estils.headerText}>PAÍSOS DEL MON</Text>
+          </View>
+          <View style={estils.buttons}>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                width: "75%",
+              }}
+            >
+              <Button
+                title="Població"
+                onPress={() => this.props.navigation.navigate("SQLite_Pobl")}
+              />
+              <Button
+                title="PiB"
+                onPress={() => this.props.navigation.navigate("SQLite_PiB")}
+              />
+              <Button
+                title="Esp. de Vida"
+                onPress={() => this.props.navigation.navigate("SQLite_EVida")}
+              />
+            </View>
+          </View>
         </View>
         <ScrollView>
           {paisos.map((item) => (
             <View key={item.id} style={estils.paisContainer}>
               <Text style={estils.paisText}>{item.Pais}</Text>
               <Text style={estils.capitalText}>Capital: {item.Capital}</Text>
-              <Text style={estils.poblacionText}>
-                PiB: {item.PiB}M €
-              </Text>
+              <Text style={estils.poblacionText}>PiB: {item.PiB}M €</Text>
               <Text style={estils.poblacionText}>
                 Població: {item.Poblacion} persones
               </Text>
