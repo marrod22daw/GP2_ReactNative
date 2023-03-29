@@ -15,12 +15,12 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={M06_Home} />
-        <Stack.Screen name="Detall" component={M06_Detalls} />
-        <Stack.Screen name="SQLite" component={M09_Sqlite} />
-        <Stack.Screen name="SQLite_PiB" component={M09_Sqlite_PiB} />
-        <Stack.Screen name="SQLite_Pobl" component={M09_Sqlite_Pobl} />
-        <Stack.Screen name="SQLite_EVida" component={M09_Sqlite_EVida} />
+        <Stack.Screen name="Home" component={M06_Home} options={{headerBackTitleVisible: false,headerTitle: '',headerShown: true}}/>
+        <Stack.Screen name="Detall" component={M06_Detalls} options={{headerBackTitleVisible: false,headerTitle: '',headerShown: true}}/>
+        <Stack.Screen name="SQLite" component={M09_Sqlite} options={{headerBackTitleVisible: false,headerTitle: '',headerShown: true}}/>
+        <Stack.Screen name="SQLite_PiB" component={M09_Sqlite_PiB} options={{headerBackTitleVisible: false,headerTitle: '',headerShown: true}}/>
+        <Stack.Screen name="SQLite_Pobl" component={M09_Sqlite_Pobl} options={{headerBackTitleVisible: false,headerTitle: '',headerShown: true}}/>
+        <Stack.Screen name="SQLite_EVida" component={M09_Sqlite_EVida} options={{headerBackTitleVisible: false,headerTitle: '',headerShown: true}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
