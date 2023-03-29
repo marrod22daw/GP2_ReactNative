@@ -121,14 +121,17 @@ export class M09_Sqlite_EVida extends React.Component {
               <Button
                 title="Població"
                 onPress={() => this.props.navigation.navigate("SQLite_Pobl")}
+                color="#696969"
               />
               <Button
                 title="PiB"
                 onPress={() => this.props.navigation.navigate("SQLite_PiB")}
+                color="#696969"
               />
               <Button
                 title="Esp. de Vida"
                 onPress={() => this.props.navigation.navigate("SQLite_EVida")}
+                color="#696969"
               />
             </View>
           </View>
