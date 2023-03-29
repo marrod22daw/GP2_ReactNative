@@ -122,10 +122,10 @@ export class M09_Sqlite_EVida extends React.Component {
                 PiB: {item.PiB}M €
               </Text>
               <Text style={estils.poblacionText}>
-                Població: {item.Poblacion}
+                Població: {item.Poblacion} persones
               </Text>
               <Text style={estils.poblacionText2}>
-                Esperança de vida: {item.EsperanzaVida}
+                Esperança de vida: {item.EsperanzaVida} anys
               </Text>
               <Image
                 source={{ uri: item.Bandera }}
