@@ -107,7 +107,7 @@ const estils = StyleSheet.create({
     marginRight: 10,
   },
   optionButtonSelected: {
-    backgroundColor: "#ff0000",
+    backgroundColor: "#007bff",
     borderColor: "#007bff",
   },
   optionButtonText: {
@@ -118,7 +118,7 @@ const estils = StyleSheet.create({
   },
 });
 
-export class M06_Detalls extends React.Component {
+export class M06_Donacions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -195,7 +195,6 @@ export class M06_Detalls extends React.Component {
           style={estils.button}
           title="Enviar"
           onPress={() => this.props.navigation.navigate("Home")}
-          color="#696969"
         >
           <Text style={estils.buttonText}>Enviar</Text>
         </Button>

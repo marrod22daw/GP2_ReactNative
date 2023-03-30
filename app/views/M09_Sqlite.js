@@ -40,6 +40,13 @@ const estils = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4,
   },
+  buttons: {
+    flexDirection: "row",
+    padding: "5%",
+  },
+  buttons2: {
+    marginLeft: "5%",
+  },
   paisText: {
     fontSize: 24,
     fontWeight: "bold",
@@ -112,33 +119,48 @@ export class M09_Sqlite extends React.Component {
     return (
       <View style={estils.container}>
         <View style={estils.header}>
-          <Text style={estils.headerText}>PAÍSOS DEL MON</Text>
-          <Button
-            title="PiB"
-            onPress={() => this.props.navigation.navigate('SQLite_PiB')}
-          />
-          <Button
-            title="Població"
-            onPress={() => this.props.navigation.navigate('SQLite_Pobl')}
-          />
-          <Button
-            title="Esp. de Vida"
-            onPress={() => this.props.navigation.navigate('SQLite_EVida')}
-          />
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Text style={estils.headerText}>PAÍSOS DEL MON</Text>
+          </View>
+          <View style={estils.buttons}>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                width: "75%",
+              }}
+            >
+              <Button
+                title="Població"
+                onPress={() => this.props.navigation.navigate("SQLite_Pobl")}
+                color="#696969"
+              />
+              <Button
+                title="PiB"
+                onPress={() => this.props.navigation.navigate("SQLite_PiB")}
+                color="#696969"
+              />
+              <Button
+                title="Esp. de Vida"
+                onPress={() => this.props.navigation.navigate("SQLite_EVida")}
+                color="#696969"
+                fontWeight="bold"
+              />
+            </View>
+          </View>
         </View>
+
         <ScrollView>
           {paisos.map((item) => (
             <View key={item.id} style={estils.paisContainer}>
               <Text style={estils.paisText}>{item.Pais}</Text>
               <Text style={estils.capitalText}>Capital: {item.Capital}</Text>
+              <Text style={estils.poblacionText}>PiB: {item.PiB}M €</Text>
               <Text style={estils.poblacionText}>
-                PiB: {item.PiB}M €
+                Població: {item.Poblacion} persones
               </Text>
               <Text style={estils.poblacionText}>
-                Població: {item.Poblacion}
-              </Text>
-              <Text style={estils.poblacionText}>
-                Esperança de vida: {item.EsperanzaVida}
+                Esperança de vida: {item.EsperanzaVida} anys
               </Text>
               <Image
                 source={{ uri: item.Bandera }}
