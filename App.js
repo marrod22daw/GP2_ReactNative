@@ -16,7 +16,7 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const homeNom = "Home";
-const SqliteNom = "SQLite";
+const SqliteNom = "Dades";
 const donacionsNom = "Donacions";
 
 
@@ -49,7 +49,7 @@ export default function App() {
             iconName = focused ? 'list' : 'list-outline';
 
           } else if (rn === donacionsNom) {
-            iconName = focused ? 'list' : 'list-outline';
+            iconName = focused ? 'cash' : 'cash-outline';
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -61,8 +61,9 @@ export default function App() {
         style: { padding: 10, height: 70}
       })}>
         <Tab.Screen name={homeNom} component={M06_Home} options={{headerBackTitleVisible: false,headerTitle: '',headerShown: true}}/>
+        <Tab.Screen name={SqliteNom} component={App2} options={{headerBackTitleVisible: false,headerTitle: '',headerShown: true}}/>
         <Tab.Screen name={donacionsNom} component={M06_Donacions} options={{headerBackTitleVisible: false,headerTitle: '',headerShown: true}}/>
-        <Tab.Screen name={SqliteNom} component={App2}/>
+        
 
       </Tab.Navigator>
     </NavigationContainer>

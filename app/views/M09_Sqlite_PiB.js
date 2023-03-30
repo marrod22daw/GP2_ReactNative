@@ -136,7 +136,7 @@ export class M09_Sqlite_PiB extends React.Component {
               <Button
                 title="PiB"
                 onPress={() => this.props.navigation.navigate("SQLite_PiB")}
-                color="#696969"
+                color="#43cc39"
               />
               <Button
                 title="Esp. de Vida"

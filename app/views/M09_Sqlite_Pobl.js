@@ -121,7 +121,7 @@ export class M09_Sqlite_Pobl extends React.Component {
               <Button
                 title="Població"
                 onPress={() => this.props.navigation.navigate("SQLite_Pobl")}
-                color="#696969"
+                color="#43cc39"
               />
               <Button
                 title="PiB"
@@ -151,6 +151,11 @@ export class M09_Sqlite_Pobl extends React.Component {
               <Image
                 source={{ uri: item.Bandera }}
                 style={estils.banderaImagen}
+              />
+              <Button
+                title="Enrere"
+                onPress={() => this.props.navigation.goBack()}
+                color="#43cc39"
               />
             </View>
           ))}
