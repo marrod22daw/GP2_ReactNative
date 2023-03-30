@@ -28,6 +28,7 @@ const estils = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 5,
     elevation: 5,
+    opacity: 0.8,
   },
   title: {
     fontSize: 24,
