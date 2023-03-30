@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 
-import {M06_Home} from './app/views/M06_Home_routing';
+import M06_Home from './app/views/M06_Home_routing';
 import {M06_Donacions} from './app/views/M06_Donacions';
 import { M09_Sqlite } from './app/views/M09_Sqlite';
 import { M09_Sqlite_PiB } from './app/views/M09_Sqlite_PiB';
