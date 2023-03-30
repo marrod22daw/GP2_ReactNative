@@ -164,6 +164,11 @@ export class M09_Sqlite_PiB extends React.Component {
               />
             </View>
           ))}
+          <Button
+            title="Enrere"
+            onPress={() => this.props.navigation.goBack()}
+            color="#43cc39"
+          />
         </ScrollView>
       </View>
     );

@@ -152,13 +152,13 @@ export class M09_Sqlite_Pobl extends React.Component {
                 source={{ uri: item.Bandera }}
                 style={estils.banderaImagen}
               />
-              <Button
-                title="Enrere"
-                onPress={() => this.props.navigation.goBack()}
-                color="#43cc39"
-              />
             </View>
           ))}
+          <Button
+            title="Enrere"
+            onPress={() => this.props.navigation.goBack()}
+            color="#43cc39"
+          />
         </ScrollView>
       </View>
     );
