@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import Entypo from "react-native-vector-icons/Entypo";
 
 import { M06_Home } from "./app/views/M06_Home_routing";
 import { M06_Donacions } from "./app/views/M06_Donacions";
@@ -15,8 +16,19 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const homeNom = "Home";
-const SqliteNom = "SQLite";
+const SqliteNom = "Dades";
 const donacionsNom = "Donacions";
+
+function App2() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="SQLite2" component={M09_Sqlite} />
+      <Stack.Screen name="SQLite_PiB" component={M09_Sqlite_PiB} />
+      <Stack.Screen name="SQLite_Pobl" component={M09_Sqlite_Pobl} />
+      <Stack.Screen name="SQLite_EVida" component={M09_Sqlite_EVida} />
+    </Stack.Navigator>
+  );
+}
 
 export default function App() {
   return (
@@ -33,7 +45,7 @@ export default function App() {
             } else if (rn === SqliteNom) {
               iconName = focused ? "list" : "list-outline";
             } else if (rn === donacionsNom) {
-              iconName = focused ? "settings" : "list-outline";
+              iconName = focused ? "cash" : "cash-outline";
             }
 
             return <Ionicons name={iconName} size={size} color={color} />;
@@ -54,6 +66,15 @@ export default function App() {
           }}
         />
         <Tab.Screen
+          name={SqliteNom}
+          component={App2}
+          options={{
+            headerBackTitleVisible: false,
+            headerTitle: "",
+            headerShown: true,
+          }}
+        />
+        <Tab.Screen
           name={donacionsNom}
           component={M06_Donacions}
           options={{
@@ -62,50 +83,7 @@ export default function App() {
             headerShown: true,
           }}
         />
-        <Tab.Screen
-          name={SqliteNom}
-          component={M09_Sqlite}
-          options={{
-            headerBackTitleVisible: false,
-            headerTitle: "",
-            headerShown: true,
-          }}
-        />
       </Tab.Navigator>
     </NavigationContainer>
-  );
-}
-
-export function App2() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="SQLite_PiB"
-        component={M09_Sqlite_PiB}
-        options={{
-          headerBackTitleVisible: false,
-          headerTitle: "",
-          headerShown: true,
-        }}
-      />
-      <Stack.Screen
-        name="SQLite_Pobl"
-        component={M09_Sqlite_Pobl}
-        options={{
-          headerBackTitleVisible: false,
-          headerTitle: "",
-          headerShown: true,
-        }}
-      />
-      <Stack.Screen
-        name="SQLite_EVida"
-        component={M09_Sqlite_EVida}
-        options={{
-          headerBackTitleVisible: false,
-          headerTitle: "",
-          headerShown: true,
-        }}
-      />
-    </Stack.Navigator>
   );
 }

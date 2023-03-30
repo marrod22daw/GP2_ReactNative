@@ -89,17 +89,6 @@ export class M06_Home extends React.Component {
             de nom i email, seleccionar la quantia de diners que has de donar i
             per finalitzar amb un comentari.
           </Text>
-
-          <Button
-            title="Dades"
-            onPress={() => this.props.navigation.navigate("SQLite")}
-            color="#696969"
-          />
-          <Button
-            title="Donacions"
-            onPress={() => this.props.navigation.navigate("Donacions")}
-            color="#696969"
-          />
         </View>
       </ImageBackground>
     );
